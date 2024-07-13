@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 Int                 @id @default(autoincrement())
+  name               String
+  username           String              @unique
+  email              String              @unique
+  password           String
+  resetPasswordToken ResetPasswordToken?
+}
+
+model UnverifiedUser {
+  id                Int                @id @default(autoincrement())
+  name              String
+  username          String             @unique
+  email             String             @unique
+  password          String
+  confirmEmailToken ConfirmEmailToken?
+}
+
+model ResetPasswordToken {
+  id     Int    @id @default(autoincrement())
+  token  String @unique
+  userId Int    @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model ConfirmEmailToken {
+  id               Int            @id @default(autoincrement())
+  token            String         @unique
+  unverifiedUserId Int            @unique
+  unverifiedUser   UnverifiedUser @relation(fields: [unverifiedUserId], references: [id], onDelete: Cascade)
+}

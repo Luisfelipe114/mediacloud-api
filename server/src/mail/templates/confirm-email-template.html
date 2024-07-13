@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmação de Cadastro</title>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      color: #0f172a;
+      font-size: 1.8em;
+      text-align: center;
+    }
+
+    p {
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0f172a;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .button a {
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Confirmação de Cadastro</h2>
+    <p>
+      Clique no botão abaixo para verificar o seu e-mail e concluir seu cadastro:
+    </p>
+    <div class="button-container">
+      <a href="{{confirmeEmailLink}}" class="button" style='color: #fff;'>Confirmar Cadastro</a>
+    </div>
+    <p>
+      Se você não fez cadastro no nosso sistema, desconsidere este e-mail.
+    </p>
+  </div>
+</body>
+</html>
